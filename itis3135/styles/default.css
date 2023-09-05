@@ -1,0 +1,36 @@
+body {
+  background-color: #00227e;
+  background-image: url(https://pbs.twimg.com/media/F0b2AnpagAAB4RU?format=jpg&name=large);
+  text-align: center;
+  padding:100px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+h2{
+  color: white;
+}
+
+p {
+  font-family: verdana;
+  color: white;
+  font: bold;
+  font-size: 15px;
+}
+
+a {
+  color:rgb(170, 155, 255);
+}
+
+.border {
+  width: 80%;
+  background-color: rgba(23, 38, 70, 0.9);
+  border: 2px solid rgb(66, 89, 150);
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  max-width: 500px;
+}
