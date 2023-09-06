@@ -1,9 +1,14 @@
 body {
   background-image: url(https://pbs.twimg.com/media/F0b2AnpagAAB4RU?format=jpg&name=large);
-  text-align: center;
   padding:100px;
 }
+header {
+  text-align: center;
 
+}
+footer {
+  text-align: center;
+}
 h1, h2 {
   color: white;
   text-align: center;
@@ -27,6 +32,7 @@ figure{
   font: bold;
   font-size: 20px;
   font-family: sans-serif;
+  text-align: center;
 }
 
 ul{
