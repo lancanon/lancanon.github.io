@@ -85,11 +85,12 @@ table tr:nth-child(odd) {
 li {
   color: ivory;
   font-family:Helvetica;
+  margin: 0.2em auto
 }
 
 /* form */
 form{
-  max-width: 500px;
+  max-width: 90%px;
   padding: 20px; 
   color: whitesmoke;
   font-family:Helvetica;
