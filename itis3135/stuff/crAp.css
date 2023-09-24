@@ -1,0 +1,26 @@
+.border {
+  border-right: 80px solid rgb(11, 22, 179);
+  border-left: 10px solid red;
+  border-top:  3px solid yellow;
+
+}
+
+ul{
+  color: red;
+  text-align: center;
+  background-color: grey;
+
+}
+.cookies{
+  color: purple;
+  font-size:50px;
+  text-decoration: underline;
+  background-color: black;
+
+
+}
+h4{
+  background-color: pink;
+  margin-right: 20px;
+
+}
