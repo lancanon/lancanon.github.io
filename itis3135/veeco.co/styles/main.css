@@ -40,3 +40,8 @@ h1{
 main, footer{
   padding: 20px;
 }
+
+ul{
+  list-style-type: square;
+
+}
