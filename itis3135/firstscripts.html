@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audy Vee's Appealing Vampire Bat ★ ITIS 3135 ★ Homepage</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="scripts/defaultscripts.js"></script>
+
+  <style>
+    img {
+      width: 30%;
+      height: 30%;
+    }
+  </style>
+</head>
+<body>
+  <div class="border">
+    <header>
+      <h1>Audy Vee's Appealing Vampire Bat ★ ITIS 3135</h1>
+      <nav>
+        <a href="./">Homepage</a>
+        <a href="introduction.html">Introduction</a>
+        <a href="contract.html">Contract</a>
+        <a href="tables.html">Tables</a>
+        <a href="forms.html">Forms</a>
+        <a href="stuff/P00Py_wEB🐯Page$.htm">Crappy Webpage</a>
+        <a href="website_evaluations.html">Website Evaluations</a>
+        <a href="firstscripts.html">firstscript</a>
+        <a href="/">Back to Main Site</a>
+      </nav>
+    </header>
+    <main>
+      <h2>first script</h2>
+      <h3>
+        <script>
+          var today = new Date();
+          document.write("Current date: " + today.toDateString());
+        </script>
+      </h3>
+
+      <form id="form" onsubmit="myFunction(submit)">
+        <div class="input-element">
+          <label id="name-label">Name: </label>
+          <input placeholder="ex. Yuri Liu" id="name" type="text" required />
+        </div>
+
+        <div class="input-element">
+          <label id="mood-label">How are you feeling? </label>
+          <input placeholder="ex. sad :c " id="mood" type="text" required />
+        </div>
+
+        <input type="submit" value="submit">
+      </form>
+<!--  displays a type of polygon based on number -->
+      <form id="polygonForm" onsubmit="displayPolygon(submit)">
+        <label class="input-label" for="favNum">Enter your favorite number (0-10): </label>
+        <input type="number" id="favNum" min="0" max="10" required />
+        <input type="submit" value="Submit">
+      </form>      
+
+<!-- basic functions -->
+       <button  type="submit" onclick="batSound()">What does a Vampire Bat say? </button>
+       <button  type="submit" onclick="batWisdom()">Words of Wisdom</button>
+       <button  type="submit" onclick="calcMpg()">Calculate MPG Application</button>
+       <button  type="submit" onclick="ermPhrase()">Ermm...</button>
+
+     
+    </main>
+
+    <footer>
+      <nav>
+        <a href="https://webpages.charlotte.edu/aveerade/">CLT Webpsace</a>
+        <a href="https://github.com/lancanon">Github</a>
+        <a href="https://lancanon.github.io/">Github.io</a>
+        <a href="https://lancanon.github.io/itis3135/">ITIS3135.io</a>
+        <a href="https://www.freecodecamp.org/lancanon">freecodecamp</a>
+        <a href="https://www.codecademy.com/profiles/lancanon">Codeacademy</a>
+        <a href="https://www.linkedin.com/in/audy-veeradeth-384479217/">LinkedIn</a>
+      </nav>
+      <p>Designed by <a href="veeco.co/index.html"> Vee Company</a>© 2023 </p>
+      <a href="https://validator.w3.org/check?uri=referer">
+        <img style="border:0;width:88px;height:31px" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/W3C_HTML5_certified.png" alt="Valid HTML!">
+      </a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+      </a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -89,7 +89,7 @@ li {
 }
 
 /* form */
-form{
+form {
   max-width: 90%px;
   padding: 20px; 
   color: whitesmoke;
@@ -129,5 +129,6 @@ button[type="reset"], button[type="submit"]{
   margin: 0.3em auto;
   height: 2em;
 }
+
 
 
