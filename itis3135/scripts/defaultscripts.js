@@ -22,7 +22,7 @@ function displayPolygon(submit) {
 
 // basic functions
 function batSound(){
-  alert("PIKA PIKA CHUU CHUUUU PIKACHUUU")
+  alert("What’s cookin’, good lookin’?")
 }
 
 function batWisdom(){
