@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audy Vee's Appealing Vampire Bat ★ ITIS 3135 ★ Homepage</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <link rel="icon" type="image/png" href="./images/bluehoshi.png">
+</head>
+<body>
+    <div class="border">
+        <div data-include="components/header.html"></div>
+    <div id="content">
+        <form id="form" enctype="multipart/form-data">
+
+            <!-- Name -->
+            <div class ="input-element">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+            </div>
+<!-- test -->
+            <!-- <label for="age">Age:</label>
+            <input type="number" id="age" required><br> -->
+
+            <!-- masxcor -->
+            <div class ="input-element">
+            <label for="mascot">Mascot:</label>
+            <input type="text" id="mascot" required><br>
+            </div>
+            
+            <!-- image -->
+            <div class ="input-element">
+            <label for="image">Add Image:</label>
+            <input type="file" id="image" accept="image/*" required><br>
+            </div>
+             <!-- Caption -->
+            <div class="input-element">
+            <label for="caption">Image Caption:</label>
+            <input id="caption" type="text" required><br>
+            </div>
+
+            <!-- Background -->
+            <div class ="input-element">
+            <label for="personal-bg">Personal Background:</label>
+            <input type="text" id="personal-bg" required><br>
+            </div>
+            <div class ="input-element">
+            <label for="professional-bg">Professional Background:</label>
+            <input type="text" id="professional-bg" required><br>
+            </div>
+            <div class ="input-element">
+            <label for="academic-bg">Academic Background:</label>
+            <input type="text" id="academic-bg" required><br>
+            </div>
+            <div class ="input-element">
+            <label for="webdev">Background in Web Development:</label>
+            <input type="text" id="webdev" required><br>
+            </div>
+            <div class ="input-element">
+            <label for="pcPlatform">Primary Computer Platform:</label>
+            <input type="text" id="pcPlatform" required><br>
+            </div>
+
+            <!-- COURSES -->
+            <div class="input-element" id="courses-container">
+                <label for="courses">Courses currently taking:</label>
+                <div id="course-inputs">
+                  <div class="course-input-row">
+                    <input type="text" placeholder="Course" class="course-input" required>
+                    <input type="text" placeholder="Explanation" class="course-explanation" required>
+                  </div>
+                </div>
+              </div>
+              <button type="button" onclick="addCourse()">Add Course</button>
+              <button type="button" onclick="removeCourse()">Delete Course</button>
+              
+            
+
+            <!-- submit/reset -->
+            <button type="reset" id="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<script src="scripts/HTMLInclude.js"></script>
+<script src="scripts/survey.js"></script>
+</body>
+</html>

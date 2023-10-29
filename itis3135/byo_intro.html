@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audy Vee's Appealing Vampire Bat ★ ITIS 3135 ★ Homepage</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="icon" type="image/png" href="./images/bluehoshi.png">
+  <style>
+    img {
+        width: 30%;
+        height: 30%;
+    }
+    .course-input {
+        display: block;
+        margin-bottom: 10px;
+        width: calc(100% - 40px);
+        padding: 5px;
+        font-size: 14px;
+    }
+  </style>
+  <script src="scripts/survey.js"></script>
+  <script>
+    document.getElementById("formSubmission").addEventListener("submit", function (e) {
+      console.log("Form submitted!");
+      e.preventDefault();
+    });
+  </script>
+  
+</head>
+<body>
+  <div class="border">
+    <div data-include="components/header.html"></div>
+    <main>
+      <h2>BYO Intro</h2>
+      <h3>Time to BYO Intro page, please fill out the form below so we can create your own page.</h3>
+
+      <!-- User intro form -->
+      <form id="formSubmission">
+        <div class ="input-element">
+          <label id="name-label">
+            Name:
+          </label>
+          <input placeholder="ex. Yuri Liu" id="name" type="text" required/>
+        </div>
+
+        <div class ="input-element">
+          <label id="mascot-label">
+            Mascot:
+          </label>
+          <input placeholder="ex. Tiny Tiger" id="mascot" type="text" required/>
+        </div>
+
+        <!-- IMG -->
+        <div class ="input-element">
+          <label id="image-label">
+            Image:
+          </label>
+          <input type="file" id="image" required/>
+        </div>
+
+        <figcaption>
+          <div class ="input-element">
+            <label id="caption-label"></label>
+            <input placeholder="Insert Image Caption!!" id="caption" type="caption" required/>
+          </div>
+        </figcaption>
+
+        <!-- Background -->
+        <div class ="input-element">
+          <label id="personal-bg-label">
+            Personal Background:
+          </label>
+          <input id="personal-bg" type="text" required/>
+        </div>
+
+        <div class ="input-element">
+          <label id="academic-bg-label">
+            Academic Background:
+          </label>
+          <input id="academic-bg" type="text" required/>
+        </div>
+
+        <div class ="input-element">
+          <label id="webdev-bg-label">
+            Background in Web Development:
+          </label>
+          <input id="webdev-bg" type="text" required/>
+        </div>
+
+        <div class ="input-element">
+          <label id="primary-pc-label">
+            Primary Computer Platform:
+          </label>
+          <input id="primary-pc" type="text" required/>
+        </div>
+
+        <label for="courses">Courses currently taking:</label>
+        <div id="courses-container">
+          <input type="text" placeholder="Course 1" class="course-input" required>
+        </div>
+        <button type="button" onclick="addCourse()">Add Course</button>
+        <button type="button" onclick="removeCourse()">Delete Course</button>
+
+        <!-- misc. -->
+        <div class="input-element">
+          <label id="funFact-label">
+            Funny Thing:
+          </label>
+          <input id="funFact" type="text" required/>
+        </div>
+        
+        <div class="input-element">
+          <label id="anything-else-label">
+            Anything Else?
+          </label>
+          <input id="anythingElse" type="text" required/>
+        </div>
+        
+     
+
+        <!-- Reset/Submit -->
+        <button type="reset" id="reset">Reset</button>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+
+    </main>
+    <div data-include="components/footer.html"></div>
+  </div>
+  <script src="scripts/HTMLInclude.js"></script>
+  <script src="scripts/survey.js"></script>
+</body>
+</html>

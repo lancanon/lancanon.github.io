@@ -1,5 +1,7 @@
 body {
   background-image: url(https://pbs.twimg.com/media/F0b2AnpagAAB4RU?format=jpg&name=large);
+  background-repeat: no-repeat;
+  background-size: cover;
   padding:100px;
 }
 header {
@@ -92,12 +94,15 @@ li {
 form {
   max-width: 90%px;
   padding: 20px; 
+  margin: 0 auto;
+  padding-bottom: 2em;
   color: whitesmoke;
   font-family:Helvetica;
   text-align: left;
 }
 input{
-  padding: 5px;
+  padding: 8.5px;
+  text-align: left;
   border: none;
   border-radius: 5px;
 }
@@ -117,6 +122,7 @@ input[type="checkbox"]{
   width: 15px;
   height: 10px;
   margin: 0.5em auto;
+  padding: 100px;
 }
 input[type="radio"]{
   width: 15px;
@@ -126,9 +132,14 @@ input[type="radio"]{
 button[type="reset"], button[type="submit"]{
   width: 100%;
   font-family: Helvetica;
-  margin: 0.3em auto;
+  margin: 1em auto;
   height: 2em;
 }
 
+/* BYO Intro */
+.course-input-row {
+  text-align: left;
+  margin-bottom: 10px; /* Add margin for spacing between courses */
+}
 
 
