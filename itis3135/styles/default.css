@@ -1,8 +1,8 @@
 body {
   background-image: url(https://pbs.twimg.com/media/F0b2AnpagAAB4RU?format=jpg&name=large);
-  background-repeat: no-repeat;
   background-size: cover;
-  padding:100px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 header {
   text-align: center;
@@ -141,5 +141,3 @@ button[type="reset"], button[type="submit"]{
   text-align: left;
   margin-bottom: 10px; /* Add margin for spacing between courses */
 }
-
-
