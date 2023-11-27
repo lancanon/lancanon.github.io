@@ -1,0 +1,3 @@
+const persons = [];
+const salaries = [];
+
