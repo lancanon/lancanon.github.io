@@ -6,8 +6,13 @@ function setup() {
 
 
 function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-    ellipse(mouseX, mouseY, 20, 20);
-  } 
+  stroke(0);
+
+  let weight = map(mouseX, 0, width, 1, 30);
+  strokeWeight(weight);
+
+  if (mouseIsPressed === true) {
+    line(mouseX, mouseY, pmouseX, pmouseY);
 }
+}
+
