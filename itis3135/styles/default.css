@@ -33,6 +33,10 @@ p {
 a {
   color: rgb(156, 207, 247);
   font-family: sans-serif;
+  text-decoration: none;
+}
+a:hover, a:focus {
+	color: #528cb3;
 }
 figure{
   font: bold;
@@ -140,4 +144,94 @@ button[type="reset"], button[type="submit"]{
 .course-input-row {
   text-align: left;
   margin-bottom: 10px; /* Add margin for spacing between courses */
+}
+
+
+/* slider slideshow */
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(23, 38, 70, 0.9);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.numbertext {
+  color: #cec7d4;
+  font-size: 30px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  border-radius: 0 0 4px 0;
+  background-color: rgba(23, 38, 70, 0.9);
+
+
+}
+
+.image-caption {
+  text-align: center;
+  background-color: rgba(48, 58, 79, 0.9);
+  font-family:Helvetica;
+  padding: 2px 16px;
+  color: white;
+  font-size: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 14%;
+  padding: 4px;
+  
+}
+
+.demo {
+  opacity: 0.6;
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: rgb(85, 82, 82);
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: rgb(207, 186, 122);
 }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audy Vee's Appealing Vampire Bat ★ ITIS 3135 ★ Homepage</title>
+  <link rel="stylesheet" href = "styles/default.css">
+  <link rel="icon" type="image/png" href="./images/bluehoshi.png">
+  <style>
+    img {
+        width: 30%;
+        height: 30%;
+      }
+  </style>
+</head>
+<body>
+  <div class="border">
+    <div data-include="components/header.html"></div>
+  <main>
+    <h2> Slideshow Gallery</h2>
+
+    <div class="container">
+
+      <div class="mySlides">
+        <div class="numbertext">1/7</div>
+        <img src="images/articfox.jpg" alt="a" style = "width:100%">
+        <figcaption id="caption1" class="image-caption">A - Artic Fox</figcaption>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">2/7</div>
+        <img src="images/ukulele.jpg" alt="u" style = "width:100%">
+        <figcaption id="caption2" class="image-caption">U - Ukulele</figcaption>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">3/7</div>
+        <img src="images/digimon.jpg" alt="d" style = "width:100%">
+        <figcaption id="caption3" class="image-caption">D - Digimon</figcaption>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">4/7</div>
+        <img src="images/yotsuba.jpg" alt="y" style = "width:100%">
+        <figcaption id="caption4" class="image-caption">Y - Yotsuba</figcaption>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">5/7</div>
+        <img src="images/vampire.jpeg" alt="v" style = "width:100%">
+        <figcaption id="caption5" class="image-caption">V - Vampire Cookie</figcaption>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">6/7</div>
+        <img src="images/edward.jpeg" alt="e" style = "width:100%">
+        <figcaption id="caption6" class="image-caption">E - Edward Elric</figcaption>
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">7/7</div>
+        <img src="images/eevee.jpg" alt="e" style = "width:100%">
+        <figcaption id="caption7" class="image-caption">E - Eevee</figcaption>
+      </div>
+
+
+    <!-- slideshow buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- thumbnails -->
+    <div class = "row">
+      <div class = "column">
+      <img class ="demo cursor" src = "images/articfox.jpg" style="width: 100%" onclick ="currentSlide(1)" alt = "1">
+        </div>
+      <div class = "column">
+      <img class ="demo cursor" src = "images/ukulele.jpg" style="width: 100%" onclick ="currentSlide(2)" alt = "2">
+        </div>
+
+      <div class = "column">
+      <img class ="demo cursor" src = "images/digimon.jpg" style="width: 100%" onclick ="currentSlide(3)" alt = "3">
+        </div>
+
+      <div class = "column">
+      <img class ="demo cursor" src = "images/yotsuba.jpg" style="width: 100%" onclick ="currentSlide(4)" alt = "4">
+        </div>
+
+      <div class = "column">
+      <img class ="demo cursor" src = "images/vampire.jpeg" style="width: 100%" onclick ="currentSlide(5)" alt = "5">
+        </div>
+
+      <div class = "column">
+      <img class ="demo cursor" src = "images/edward.jpeg" style="width: 100%" onclick ="currentSlide(6)" alt = "6">
+        </div>
+
+      <div class = "column">
+      <img class ="demo cursor" src = "images/eevee.jpg" style="width: 100%" onclick ="currentSlide(7)" alt = "7">
+        </div>
+    </div>
+  </div>
+  <!-- 
+    Notes: 
+    https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp
+    inspiration from viewing the thumbnails from the League of Legends Client
+    (grey border, gold hover)
+
+    challenges: issues with getting the js file to correspond with the html file
+    solution: placed the js file in a separate scripts folder
+     from the default scripts folder...
+
+     This is my work, i did not copy and paste someone else's code
+
+     audy vee, nov.27, 8:10pm
+   -->
+
+  </main>
+  <div data-include="components/footer.html"></div>
+</main>
+  </div>
+  <script src="scripts/HTMLInclude.js"></script>
+  <script src="scripts/slides.js"></script>
+  </div>
+</body>
+</html>
