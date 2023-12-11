@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://pbs.twimg.com/media/F0b2AnpagAAB4RU?format=jpg&name=large);
+  background-image: url(https://pbs.twimg.com/media/F0b2AnpagAAB4RU?format=jpg&name=large) ;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -34,6 +34,7 @@ a {
   color: rgb(156, 207, 247);
   font-family: sans-serif;
   text-decoration: none;
+  
 }
 a:hover, a:focus {
 	color: #528cb3;
@@ -59,14 +60,15 @@ ul{
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
-  max-width:800px;
+  max-width:900px;
 }
 
 /* Table */
 table {
   border-collapse: collapse;
-  margin: 0px auto; 
+  margin: 10px auto; 
   width:60%;
+
 }
 
 th {
@@ -114,6 +116,7 @@ input{
   display: flex;
   flex-direction: column;
   margin: 10px;
+  
   
 }
 select{
@@ -234,4 +237,148 @@ button[type="reset"], button[type="submit"]{
   border: 2px solid black;
   outline-style: solid;
   outline-color: rgb(207, 186, 122);
+}
+/* arra */
+
+.arrays-html body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrays-html main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 80%; /* Adjust the width as needed */
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.arrays-html .employee-container,
+.arrays-html .addSalary-container {
+  width: 48%; /* Adjust the width as needed */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.arrays-html .addSalary-container {
+  background-color: #f0f0f0; /* Optional: add background color */
+}
+
+.arrays-html #results_table {
+  width: 100%;
+}
+
+#name-label,
+#select-label,
+#salary-label
+ {
+  margin: 2px;
+  padding-bottom: .2em;
+  color: whitesmoke;
+  font-family:Helvetica;
+  text-align: left;
+}
+#displaybtn {
+  margin: 5px;
+}
+/* navbar */
+/* Apply styles to the navigation bar with the nav-bar class */
+.nav-bar {
+  background-color: rgba(23, 38, 70);
+  border: 2px solid rgb(66, 89, 150);
+  border-radius: 30px;
+  padding: 10px;
+}
+
+/* Style the main navigation list */
+.nav-bar ul {
+  list-style: none; /* Remove default list styles */
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the navigation items */
+.nav-bar li {
+  display: inline-block; 
+  margin-right: 20px; 
+}
+
+
+/* Style the dropdown */
+.nav-bar .dropdown {
+  display: none;
+  position: absolute;
+  background-color: rgba(23, 38, 70);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the dropdown items */
+.nav-bar .dropdown li {
+  display: block;
+  padding: 5px;
+}
+
+/* Display the dropdown on hover */
+.nav-bar li:hover .dropdown {
+  display: block;
+}
+
+/* calculator */
+.calc-container {
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 10px 20px 20px;
+  background: #7673ac37;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  margin: auto;
+  margin-bottom: 20px;
+}
+.calc-display {
+  height: 80px;
+  width: 100%;
+  outline: none;
+  border: none;
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: #000e1a;
+  pointer-events: none;
+}
+.calc-buttons {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.calc-buttons button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #eee;
+}
+.calc-buttons button:active {
+  transform: scale(0.99);
+}
+.operator {
+  color: #118cf8;
+}
+
+/* calc fcc */
+.calculator__keys {
+  display:grid;
+}
+
+.text-bubble{
+  background-color: rgba(23, 38, 70);
+  border: 2px solid rgb(66, 89, 150);
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }

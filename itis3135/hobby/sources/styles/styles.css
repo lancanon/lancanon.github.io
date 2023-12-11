@@ -331,7 +331,7 @@ a:hover, a:focus {
 }
 
 /* about section */
-#about .about-container {
+.about-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -345,16 +345,6 @@ a:hover, a:focus {
 #about .about_img {
   width: 40%;
   margin-left: 20px;
-}
-
-#about h2,
-#about h3,
-#about p {
-  margin-bottom: 10px;
-}
-
-#about h2.weekly-title {
-  font-size: 2rem; 
 }
 
 /* weekly section */
