@@ -210,7 +210,7 @@
           , t = document.getElementById("down-button")
           , i = document.getElementById("fame")
           , n = await async function() {
-            return (await fetch(`https://api.risorins.com/${s.query}/fame`, {
+            return (await fetch(`https://api.lannymon.com/${s.query}/fame`, {
                 method: "PATCH"
             })).ok
         }();
