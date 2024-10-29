@@ -73,7 +73,6 @@ body {
   height: 560px;
   position: absolute;
   bottom: 30px;
-  /* left: calc(50vw - 100px); */
 }
 
 .platform {
@@ -85,37 +84,27 @@ body {
   width: 100%;
 }
 
-#pet-sleep {
+#pet-p-1 {
   background-image: url("../../public/images/animations/petsleep.gif");
   width: 63px;
   height: 40px;
   z-index: 5;
   position: absolute;
   bottom: 76px;
-  left: calc(50vw + 125px);
+  left: calc(67vw - 125px);
 }
 
-#pet-sleep-ign-container {
+#pet-p-ign-container-1 {
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
   bottom: -17px;
-  left: 4px;
+  /* left: 3px; */
 }
 
-#pet-sleep-ign {
-  background-color: rgba(0, 0, 0, 0.623);
-  border-radius: 10%;
-  color: rgba(255, 255, 255, 0.795);
-  text-align: center;
-  bottom: 0px;
-  padding: 1.5px 2.3px;
-  font-size: 9.5pt;
-  letter-spacing: 0.1px;
-}
-#bunny-sleep {
+#pet-p-2 {
   background-image: url("../../public/images/animations/bunny.gif");
   width: 28px;
   height: 17px;
@@ -125,17 +114,47 @@ body {
   left: calc(48vw + 125px);
 }
 
-#bunny-sleep-ign-container {
+#pet-p-ign-container-2 {
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
   bottom: -17px;
-  left: 4px;
+  /* left: 4px; */
 }
 
-#bunny-sleep-ign {
+#pet-p-3 {
+  background-image: url("../../public/images/animations/pet3.gif");
+  width: 40px;
+  height: 60px;
+  z-index: 5;
+  position: absolute;
+  bottom: 57px;
+  left: calc(38vw + 1px);
+}
+
+#pet-p-ign-container-3 {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  bottom: -1px;
+  /* left: 4px; */
+}
+
+.pet-p-ign-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pet-p-ign {
   background-color: rgba(0, 0, 0, 0.623);
   border-radius: 10%;
   color: rgba(255, 255, 255, 0.795);
@@ -144,4 +163,27 @@ body {
   padding: 1.5px 2.3px;
   font-size: 9.5pt;
   letter-spacing: 0.1px;
+}
+
+@media (max-width: 1024px) {
+  .background-0 {
+    animation: scrollBackgroundMd 600s linear infinite;
+  }
+  .background-1 {
+    background-size: auto;
+  }
+
+  .background-2 {
+    background-position: bottom !important;
+    background-size: auto !important;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .background-0 {
+    top: auto;
+    bottom: 200px;
+    animation: scrollBackgroundSm 600s linear infinite;
+  }
 }
