@@ -77,7 +77,7 @@ body {
 
 .platform {
   background-image: url("../../public/images/setting/platform.png");
-  height: 64px;
+  height: 69px;
   position: absolute;
   z-index: 4;
   bottom: calc(10px + var(--platform-offset-y));
