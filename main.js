@@ -20,7 +20,7 @@
         },
         player: {
             ign: "lan",
-            level: "200",
+            level: "25",
             job: "software engineer",
             fame: "34",
             guild: "-",
@@ -83,7 +83,7 @@
             type: "Kero-chan",
             "pet-level": 12,
             closeness: 91,
-            fullness: "∞",
+            fullness: "100",
             style: {
                 "--pet-width": "40px",
                 "--pet-height": "60px",
@@ -475,87 +475,6 @@
         document.hidden || l.reset()
     }
     )),
-    console.log("%c by @nb_div on twitter", "font: 26px sans-serif; font-weight:bold; color: #77DD77; -webkit-text-stroke:0.01px black;")
+    console.log("%c @lannymon", "font: 26px sans-serif; font-weight:bold; color: #c9e4ff; -webkit-text-stroke:0.01px black;")
   }
   )();
-  
-  /* 
-  const s = {
-          query: "lan",
-          config: {
-              usePetLinks: !0
-          },
-          player: {
-              ign: "lan",
-              level: "25",
-              job: "software engineer",
-              fame: "34",
-              guild: "-",
-              alliance: "-",
-              married: !0
-          },
-          buttons: {
-              wishlist: "",
-              party: "mailto::veeaudy1204@gmail.com",
-              family: "https://discord.gg/rxZR48jDtP"
-  
-          },
-          pet: {
-              ign: "baws",
-              type: "Tubby Tiger",
-              "pet-level": 25,
-              closeness: 1204,
-              fullness: 100
-          },
-          bunny: {
-              ign: "kiki",
-              type: "Tubby Tiger",
-              "pet-level": 25,
-              closeness: 1204,
-              fullness: 100
-          },
-          links: [{
-              url: "https://twitter.com/lannymon_",
-              title: "Twitter",
-              image: "./public/images/ui/icons/links/twitter.png",
-              requiredLevel: 0
-          }, {
-              url: "https://instagram.com/lannymon_",
-              title: "Instagram",
-              image: "./public/images/ui/icons/links/instagram.png",
-              requiredLevel: 0
-          }, {
-              url: "https://twitch.tv/lannymon",
-              title: "Twitch",
-              image: "./public/images/ui/icons/links/twitch.png",
-              requiredLevel: 0
-          }, {
-              url: "https://www.youtube.com/channel/UCsEzDbi0RHzdQgAfbNyxhLA",
-              title: "Youtube",
-              image: "./public/images/ui/icons/links/youtube.png",
-              requiredLevel: 0,
-              custom: "30px"
-          }, {
-              url: "https://bsky.app/profile/lannymon.bsky.social",
-              title: "Bluesky",
-              image: "./public/images/ui/icons/links/bluesky.png",
-              requiredLevel: 0
-          }, {
-              url: "https://open.spotify.com/user/baestatlon?si=d142f31e2b874217",
-              title: "Spotify",
-              image: "./public/images/ui/icons/links/spotify.png",
-              requiredLevel: 0
-          }, {
-              url: "https://github.com/lancanon/",
-              title: "Github",
-              image: "./public/images/ui/icons/links/github.png",
-              requiredLevel: 0,
-              custom: "27px"
-          }, {
-              url: "https://www.linkedin.com/in/audy-vee-384479217/",
-              title: "LinkedIn",
-              image: "./public/images/ui/icons/links/linkedin.png",
-              requiredLevel: 0
-          }]
-      }
-  */ 
