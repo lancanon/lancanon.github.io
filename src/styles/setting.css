@@ -91,7 +91,7 @@ body {
   z-index: 5;
   position: absolute;
   bottom: 76px;
-  left: calc(67vw - 125px);
+  left: calc(48vw + 125px);
 }
 
 #pet-p-ign-container-1 {
@@ -111,7 +111,7 @@ body {
   z-index: 5;
   position: absolute;
   bottom: 76px;
-  left: calc(48vw + 125px);
+  left: calc(45vw + 125px);
 }
 
 #pet-p-ign-container-2 {
