@@ -54,6 +54,11 @@
                 title: "Bluesky",
                 image: "./public/images/ui/icons/links/bluesky.png",
                 requiredLevel: 0
+            }, {
+                url: "https://letterboxd.com/lanny1201/",
+                title: "Letterboxd",
+                image: "./public/images/ui/icons/links/letterboxd.png",
+                requiredLevel: 0
             }]
         }, {
             "pet-ign": "kiki",
@@ -121,6 +126,11 @@
                 title: "Bluesky",
                 image: "./public/images/ui/icons/links/bluesky.png",
                 requiredLevel: 0
+        }, {
+            url: "https://letterboxd.com/lanny1201/",
+            title: "Letterboxd",
+            image: "./public/images/ui/icons/links/letterboxd.png",
+            requiredLevel: 0
         }]
     }
     , l = new class {
