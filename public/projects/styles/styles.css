@@ -1,0 +1,271 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+
+:root {
+	--pixel-bg: rgb(243, 247, 200); /* Inner background color */
+	--pixel-border: rgb(152, 48, 48); /* Inner border color: */
+	--pixel-border-2: rgb(249, 204, 41); /* Middle border color: */
+	--pixel-border-3: var(--pixel-border); /* Outer border color */
+	--pixel: .125rem; /* Pixel size */
+}
+
+
+
+body {
+  font-family: 'Lato', sans-serif;
+	display: grid;
+	padding-inline: min(3vw, 9em);
+  background-image: url(background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.nav-bar{
+	margin: auto;
+	text-align: center;
+}
+
+h1 {
+	font-size: clamp(.625rem, calc(.625rem + 4vw), 2rem);
+  color:rgb(165, 99, 42);
+}
+h2 {
+  color: rgb(70, 110, 152);
+}
+/* nav bar */
+
+.nav-bar ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-right: 20px;
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  font-weight: 700;
+}
+
+/* Remove the default link styles */
+.nav-bar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Optionally, you can style the links on hover */
+.nav-bar a:hover {
+  text-decoration: none; 
+  color: brown;
+}
+
+
+/* pixel border */
+.pixel-border {
+  width: 80%;
+	background: var(--pixel-bg);
+	box-shadow:
+		
+	/* inner bg */
+		0 calc(var(--pixel) * -3) 0 calc(var(--pixel) * -1) var(--pixel-bg),
+		0 calc(var(--pixel) * 3) 0 calc(var(--pixel) * -1) var(--pixel-bg),
+		0 calc(var(--pixel) * -6) 0 calc(var(--pixel) * -2) var(--pixel-bg),
+		0 calc(var(--pixel) * 6) 0 calc(var(--pixel) * -2) var(--pixel-bg),
+		0 calc(var(--pixel) * -9) 0 calc(var(--pixel) * -4) var(--pixel-bg),
+		0 calc(var(--pixel) * 9) 0 calc(var(--pixel) * -4) var(--pixel-bg),
+		0 calc(var(--pixel) * -12) 0 calc(var(--pixel) * -6) var(--pixel-bg),
+		0 calc(var(--pixel) * 12) 0 calc(var(--pixel) * -6) var(--pixel-bg),
+		
+	/* inner border */
+		calc(var(--pixel) * -1) 0 0 0 var(--pixel-border),
+		var(--pixel) 0 0 0 var(--pixel-border),
+		0 calc(var(--pixel) * -2) 0 0 var(--pixel-border),
+		0 calc(var(--pixel) * 2) 0 0 var(--pixel-border),
+		0 calc(var(--pixel) * -5) 0 calc(var(--pixel) * -1) var(--pixel-border),
+		0 calc(var(--pixel) * 5) 0 calc(var(--pixel) * -1) var(--pixel-border),
+		0 calc(var(--pixel) * -7) 0 calc(var(--pixel) * -2) var(--pixel-border),
+		0 calc(var(--pixel) * 7) 0 calc(var(--pixel) * -2) var(--pixel-border),
+		0 calc(var(--pixel) * -10) 0 calc(var(--pixel) * -4) var(--pixel-border),
+		0 calc(var(--pixel) * 10) 0 calc(var(--pixel) * -4) var(--pixel-border),
+		0 calc(var(--pixel) * -13) 0 calc(var(--pixel) * -6) var(--pixel-border),
+		0 calc(var(--pixel) * 13) 0 calc(var(--pixel) * -6) var(--pixel-border),
+		
+	/* middle border */
+		calc(var(--pixel) * -2) 0 0 0 var(--pixel-border-2),
+		calc(var(--pixel) * 2) 0 0 0 var(--pixel-border-2),
+		0 calc(var(--pixel) * -1) 0 var(--pixel) var(--pixel-border-2), 
+		0 var(--pixel) 0 var(--pixel) var(--pixel-border-2),
+		0 calc(var(--pixel) * -4) 0 0 var(--pixel-border-2),
+		0 calc(var(--pixel) * 4) 0 0 var(--pixel-border-2),
+		0 calc(var(--pixel) * -6) 0 calc(var(--pixel) * -1) var(--pixel-border-2),
+		0 calc(var(--pixel) * 6) 0 calc(var(--pixel) * -1) var(--pixel-border-2),
+		0 calc(var(--pixel) * -8) 0 calc(var(--pixel) * -2) var(--pixel-border-2),
+		0 calc(var(--pixel) * 8) 0 calc(var(--pixel) * -2) var(--pixel-border-2),
+		0 calc(var(--pixel) * -11) 0 calc(var(--pixel) * -4) var(--pixel-border-2),
+		0 calc(var(--pixel) * 11) 0 calc(var(--pixel) * -4) var(--pixel-border-2),
+		0 calc(var(--pixel) * -14) 0 calc(var(--pixel) * -6) var(--pixel-border-2),
+		0 calc(var(--pixel) * 14) 0 calc(var(--pixel) * -6) var(--pixel-border-2),
+		
+	/* outer border*/
+		calc(var(--pixel) * -3) 0 0 0 var(--pixel-border-3),
+		calc(var(--pixel) * 3) 0 0 0 var(--pixel-border-3),
+		0 0 0 calc(var(--pixel) * 2) var(--pixel-border-3),
+		0 calc(var(--pixel) * -3) 0 var(--pixel) var(--pixel-border-3),
+		0 calc(var(--pixel) * 3) 0 var(--pixel) var(--pixel-border-3),
+		0 calc(var(--pixel) * -5) 0 0 var(--pixel-border-3),
+		0 calc(var(--pixel) * 5) 0 0 var(--pixel-border-3),
+		0 calc(var(--pixel) * -7) 0 calc(var(--pixel) * -1) var(--pixel-border-3),
+		0 calc(var(--pixel) * 7) 0 calc(var(--pixel) * -1) var(--pixel-border-3),
+		0 calc(var(--pixel) * -9) 0 calc(var(--pixel) * -2) var(--pixel-border-3), 
+		0 calc(var(--pixel) * 9) 0 calc(var(--pixel) * -2) var(--pixel-border-3),
+		0 calc(var(--pixel) * -12) 0 calc(var(--pixel) * -4) var(--pixel-border-3), 
+		0 calc(var(--pixel) * 12) 0 calc(var(--pixel) * -4) var(--pixel-border-3),
+		0 calc(var(--pixel) * -15) 0 calc(var(--pixel) * -6) var(--pixel-border-3), 
+		0 calc(var(--pixel) * 15) 0 calc(var(--pixel) * -6) var(--pixel-border-3);
+    margin: auto;
+    position: relative;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.content-box{
+  background: rgba(255, 255, 255, 0.94);
+  padding: 1rem ;
+  position: relative;
+  border-radius: 25px;
+  width: 70%;
+  margin: 3rem;
+  left: 10.5%;
+}
+
+.text-container{
+  text-align: left;
+  justify-content: left;
+}
+
+.about_img {
+  max-width: 15%;
+  max-height: 15%;
+}
+
+/* slider slideshow */
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 60%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(205, 154, 77, 0.9);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+
+.image-caption {
+  text-align: center;
+  background-color: rgba(238, 197, 10, 0.9);
+  font-family:Helvetica;
+  padding: 2px 16px;
+  color: rgb(25, 8, 8);
+  font-size: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 14%;
+  padding: 4px;
+  
+}
+
+.demo {
+  opacity: 0.6;
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: rgb(85, 82, 82);
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: rgb(207, 186, 122);
+}
+
+/* footer */
+footer {
+  text-align: center;
+}
+
+#starting-content ul,
+#starting-content li {
+  list-style-type: disc;
+  font-weight: 200;
+  text-align: left;
+}
+/* farmhouse */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1.5em;
+}
+
+.grid__item {
+  position: relative;
+}
+
+.grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.upgrade-container {
+  display: flex; 
+}
+
+.upgrade-img {
+  flex: 1; 
+}
+
+.sidebar {
+  width: 30%;
+}
+.sidebar li {
+  margin-bottom: 20px;  
+
+}
+.image-container {
+  display: flex;
+}
+

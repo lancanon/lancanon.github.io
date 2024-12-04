@@ -20,7 +20,7 @@
         },
         player: {
             ign: "lan",
-            level: "25",
+            level: "26",
             job: "software engineer",
             fame: "34",
             guild: "-",
@@ -35,9 +35,9 @@
         pet: [{
             "pet-ign": "baws",
             type: "Tubby Tiger",
-            "pet-level": 26,
-            closeness: 1204,
-            fullness: 88,
+            "pet-level": 12,
+            closeness: 100,
+            fullness: 4,
             style: {
                 "--pet-width": "63px",
                 "--pet-height": "40px",
@@ -63,9 +63,9 @@
         }, {
             "pet-ign": "kiki",
             type: "DreamyBunny",
-            "pet-level": 21,
+            "pet-level": 4,
             closeness: 100,
-            fullness: 99,
+            fullness: 21,
             style: {
                 "--pet-width": "28px",
                 "--pet-height": "17px",
@@ -88,7 +88,7 @@
             type: "Kero-chan",
             "pet-level": 12,
             closeness: 91,
-            fullness: "100",
+            fullness: "1",
             style: {
                 "--pet-width": "40px",
                 "--pet-height": "60px",
