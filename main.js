@@ -13,6 +13,8 @@
     ), 100);
     let i, n, o;
     window.upperBound = window.innerWidth - 100;
+
+    // configuration and data
     const s = {
         query: "lan",
         config: {
@@ -133,32 +135,39 @@
             requiredLevel: 0
         }]
     }
-    , l = new class {
+    , 
+        // character animation
+        l = new class {
         constructor() {
             this.status = "idle",
             this.direction = "right",
             this.coordinate = 0,
             this.previousCoordinate = 0
         }
+        // Change character animation
         changeAnimation(e) {
             n.style.backgroundImage = `url('./public/images/animations/${e}.gif')`
         }
+        // Turn character direction
         turn(e) {
             this.direction = e,
             "left" === this.direction ? (n.style.transform = "none",
             i.style.transform = "none") : "right" === this.direction && (n.style.transform = "scaleX(-1)",
             i.style.transform = "scaleX(-1)")
         }
+        // Set character status
         setStatus(e) {
             "idle" !== e && "walking" !== e || (this.status = e,
             this.turn(this.direction),
             this.changeAnimation(e))
         }
+        // Reset character animation
         reset() {
             n.style.transition = "none",
             this.setStatus("idle"),
             clearTimeout(o)
         }
+        // Move character to a specific coordinate
         move(e) {
             this.previousCoordinate = this.coordinate,
             this.coordinate = e,
@@ -174,12 +183,14 @@
             ), t),
             t
         }
+        // move character randomly within the window bounds
         moveRandomly() {
             const e = Math.floor(Math.random() * window.upperBound)
               , t = Math.floor(3e3 * Math.random()) + 1e3;
             let n = this.move(e);
             setTimeout(this.moveRandomly.bind(this), n + t)
         }
+        // initialize character animation
         init() {
             n = document.getElementById("character"),
             i = document.getElementById("character-ign-container"),
@@ -187,6 +198,8 @@
             this.turn("right")
         }
     }
+
+    // DOM elements
       , a = document.getElementById("character-info")
       , c = document.getElementById("character-title-bar")
       , u = document.getElementById("character-help-button")
@@ -247,18 +260,28 @@
           , n = p.scrollTop / (e - t) * 100 / 100 * (t - x.clientHeight - 26);
         x.style.transform = `translateY(${n}px)`
     }
-    async function A() {
+    async function A(increment) {
         const e = document.getElementById("up-button")
           , t = document.getElementById("down-button")
-          , n = document.getElementById("fame")
-          , i = await async function() {
-            return (await fetch(`https://api.lannymon.com/${s.query}/fame`, {
-                method: "PATCH"
-            })).ok
-        }();
-        return i ? n.textContent = Number(n.textContent) + 1 : (e.disabled = !0,
-        t.disabled = !0),
-        i
+          , n = document.getElementById("fame");
+
+        // Update the fame count
+        if (increment) {
+            s.player.fame = Number(s.player.fame) + 1;
+            M("F2");
+        } else {
+            s.player.fame = Number(s.player.fame) - 1;
+            M("F4");
+        }
+
+        // Update the fame count in the DOM
+        n.textContent = s.player.fame;
+
+        // Optionally, disable the buttons if needed
+        // e.disabled = true;
+        // t.disabled = true;
+
+        return true;
     }
     function F() {
         I = !1,
@@ -396,6 +419,16 @@
     R(),
     document.getElementById("character-ign").textContent = s.player.ign,
     v.textContent = s.player.fame,
+
+        // Attach event listeners to the "up" and "down" buttons
+    // document.getElementById("up-button").addEventListener("click", function() {
+    //     A(true); // Increment fame
+    // });
+
+    document.getElementById("down-button").addEventListener("click", function() {
+        A(false); // Decrement fame
+    });
+
     y.addEventListener("click", (function() {
         I ? F() : H()
     }
@@ -434,7 +467,7 @@
     )),
     f.addEventListener("click", A),
     k.addEventListener("click", (function() {
-        M("F4")
+        // M("F4")
     }
     )),
     p.addEventListener("scroll", C),
