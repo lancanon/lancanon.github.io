@@ -82,7 +82,8 @@
                 url: "https://instagram.com/lannymon_",
                 title: "Github",
                 image: "./public/images/ui/icons/links/github.png",
-                requiredLevel: 0
+                requiredLevel: 0,
+                custom: "25px"
             }]
         }, {
             "pet-ign": "winry",
