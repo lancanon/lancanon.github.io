@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+sqlalchemy
+pymysql
+pytest
+pytest-mock
+httpx
+cryptography
+passlib
+python-dotenv
+typing-extensions
+pydantic

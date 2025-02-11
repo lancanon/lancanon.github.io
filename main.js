@@ -1,4 +1,4 @@
-(()=>{
+(()=> {
     "use strict";
     function e(e, t) {
         let i;
@@ -13,8 +13,6 @@
     ), 100);
     let i, n, o;
     window.upperBound = window.innerWidth - 100;
-
-    // configuration and data
     const s = {
         query: "lan",
         config: {
@@ -22,9 +20,9 @@
         },
         player: {
             ign: "lan",
-            level: "26",
+            level: "25",
             job: "software engineer",
-            fame: "34",
+            fame: "-",
             guild: "-",
             alliance: "-",
             married: !0
@@ -37,9 +35,9 @@
         pet: [{
             "pet-ign": "baws",
             type: "Tubby Tiger",
-            "pet-level": 12,
-            closeness: 100,
-            fullness: 4,
+            "pet-level": 26,
+            closeness: 1204,
+            fullness: 88,
             style: {
                 "--pet-width": "63px",
                 "--pet-height": "40px",
@@ -55,7 +53,8 @@
                 url: "https://bsky.app/profile/lannymon.bsky.social",
                 title: "Bluesky",
                 image: "./public/images/ui/icons/links/bluesky.png",
-                requiredLevel: 0
+                requiredLevel: 0,
+                custom: "25px"
             }, {
                 url: "https://letterboxd.com/lanny1201/",
                 title: "Letterboxd",
@@ -65,9 +64,9 @@
         }, {
             "pet-ign": "kiki",
             type: "DreamyBunny",
-            "pet-level": 4,
+            "pet-level": 21,
             closeness: 100,
-            fullness: 21,
+            fullness: 99,
             style: {
                 "--pet-width": "28px",
                 "--pet-height": "17px",
@@ -90,7 +89,7 @@
             type: "Kero-chan",
             "pet-level": 12,
             closeness: 91,
-            fullness: "1",
+            fullness: "100",
             style: {
                 "--pet-width": "40px",
                 "--pet-height": "60px",
@@ -117,7 +116,8 @@
             url: "https://www.youtube.com/@lannymon2393",
             title: "YouTube",
             image: "./public/images/ui/icons/links/youtube.png",
-            requiredLevel: 0
+            requiredLevel: 0,
+            custom: "30px"
         }, {
             url: "https://open.spotify.com/user/baestatlon?si=cf71ab96efe94039",
             title: "Spotify",
@@ -135,39 +135,32 @@
             requiredLevel: 0
         }]
     }
-    , 
-        // character animation
-        l = new class {
+    , l = new class {
         constructor() {
             this.status = "idle",
             this.direction = "right",
             this.coordinate = 0,
             this.previousCoordinate = 0
         }
-        // Change character animation
         changeAnimation(e) {
             n.style.backgroundImage = `url('./public/images/animations/${e}.gif')`
         }
-        // Turn character direction
         turn(e) {
             this.direction = e,
             "left" === this.direction ? (n.style.transform = "none",
             i.style.transform = "none") : "right" === this.direction && (n.style.transform = "scaleX(-1)",
             i.style.transform = "scaleX(-1)")
         }
-        // Set character status
         setStatus(e) {
             "idle" !== e && "walking" !== e || (this.status = e,
             this.turn(this.direction),
             this.changeAnimation(e))
         }
-        // Reset character animation
         reset() {
             n.style.transition = "none",
             this.setStatus("idle"),
             clearTimeout(o)
         }
-        // Move character to a specific coordinate
         move(e) {
             this.previousCoordinate = this.coordinate,
             this.coordinate = e,
@@ -183,14 +176,12 @@
             ), t),
             t
         }
-        // move character randomly within the window bounds
         moveRandomly() {
             const e = Math.floor(Math.random() * window.upperBound)
               , t = Math.floor(3e3 * Math.random()) + 1e3;
             let n = this.move(e);
             setTimeout(this.moveRandomly.bind(this), n + t)
         }
-        // initialize character animation
         init() {
             n = document.getElementById("character"),
             i = document.getElementById("character-ign-container"),
@@ -198,8 +189,6 @@
             this.turn("right")
         }
     }
-
-    // DOM elements
       , a = document.getElementById("character-info")
       , c = document.getElementById("character-title-bar")
       , u = document.getElementById("character-help-button")
@@ -242,6 +231,7 @@
         ), 5e3)
     }
     function M(e) {
+        console.log("Value of e:", e);
         g.style.backgroundImage = `url("./public/images/animations/emote/${e}.gif")`,
         clearTimeout(L),
         L = setTimeout(( () => {
@@ -260,28 +250,25 @@
           , n = p.scrollTop / (e - t) * 100 / 100 * (t - x.clientHeight - 26);
         x.style.transform = `translateY(${n}px)`
     }
-    async function A(increment) {
+    async function A() {
         const e = document.getElementById("up-button")
           , t = document.getElementById("down-button")
           , n = document.getElementById("fame");
 
-        // Update the fame count
-        if (increment) {
-            s.player.fame = Number(s.player.fame) + 1;
-            M("F2");
+        const response = await fetch(`http://localhost:8000/players/${s.query}/fame?action=up`, {
+            method: "PATCH"
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            n.textContent = result.fame;
+            M(result.reaction); // Trigger the emote
         } else {
-            s.player.fame = Number(s.player.fame) - 1;
-            M("F4");
+            e.disabled = true;
+            t.disabled = true;
+            console.error(result.detail);
         }
-
-        // Update the fame count in the DOM
-        n.textContent = s.player.fame;
-
-        // Optionally, disable the buttons if needed
-        // e.disabled = true;
-        // t.disabled = true;
-
-        return true;
     }
     function F() {
         I = !1,
@@ -419,16 +406,6 @@
     R(),
     document.getElementById("character-ign").textContent = s.player.ign,
     v.textContent = s.player.fame,
-
-        // Attach event listeners to the "up" and "down" buttons
-    // document.getElementById("up-button").addEventListener("click", function() {
-    //     A(true); // Increment fame
-    // });
-
-    document.getElementById("down-button").addEventListener("click", function() {
-        A(false); // Decrement fame
-    });
-
     y.addEventListener("click", (function() {
         I ? F() : H()
     }
@@ -450,7 +427,7 @@
     C(),
     async function() {
         document.getElementById("fame").textContent = await async function() {
-            const e = await fetch(`https://api.lannymon.com/${s.query}/fame`);
+            const e = await fetch(`http://localhost:8000/players/${s.query}/fame`);
             return (await e.json()).fame
         }()
     }(),
@@ -466,10 +443,20 @@
     }
     )),
     f.addEventListener("click", A),
-    k.addEventListener("click", (function() {
-        // M("F4")
-    }
-    )),
+    k.addEventListener("click", async function() {
+        const response = await fetch(`http://localhost:8000/players/${s.query}/fame?action=down`, {
+            method: "PATCH"
+        });
+    
+        const result = await response.json();
+    
+        if (response.ok) {
+            document.getElementById("fame").textContent = result.fame;
+            M(result.reaction); 
+        } else {
+            console.error(result.detail);
+        }
+    }),
     p.addEventListener("scroll", C),
     w.addEventListener("change", q),
     q(),
