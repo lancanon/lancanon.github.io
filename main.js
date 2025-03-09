@@ -20,7 +20,7 @@
         },
         player: {
             ign: "lan",
-            level: "25",
+            level: "26",
             job: "software engineer",
             fame: "-",
             guild: "-",
@@ -35,9 +35,9 @@
         pet: [{
             "pet-ign": "baws",
             type: "Tubby Tiger",
-            "pet-level": 26,
-            closeness: 1204,
-            fullness: 88,
+            "pet-level": 12,
+            closeness: 4,
+            fullness: 98,
             style: {
                 "--pet-width": "63px",
                 "--pet-height": "40px",
@@ -64,8 +64,8 @@
         }, {
             "pet-ign": "kiki",
             type: "DreamyBunny",
-            "pet-level": 21,
-            closeness: 100,
+            "pet-level": 4,
+            closeness: 21,
             fullness: 99,
             style: {
                 "--pet-width": "28px",
@@ -89,8 +89,8 @@
             "pet-ign": "winry",
             type: "Kero-chan",
             "pet-level": 12,
-            closeness: 91,
-            fullness: "100",
+            closeness: 1,
+            fullness: "97",
             style: {
                 "--pet-width": "40px",
                 "--pet-height": "60px",
@@ -264,7 +264,7 @@
 
         if (response.ok) {
             n.textContent = result.fame;
-            M(result.reaction); // Trigger the emote
+            M(result.reaction); 
         } else {
             e.disabled = true;
             t.disabled = true;
