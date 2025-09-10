@@ -56,7 +56,7 @@
                 requiredLevel: 0,
                 custom: "25px"
             }, {
-                url: "https://letterboxd.com/lanny1201/",
+                url: "https://letterboxd.com/lannymon/",
                 title: "Letterboxd",
                 image: "./public/images/ui/icons/links/letterboxd.png",
                 requiredLevel: 0
@@ -114,7 +114,7 @@
             image: "./public/images/ui/icons/links/twitch.png",
             requiredLevel: 0
         }, {
-            url: "https://www.youtube.com/@lannymon2393",
+            url: "https://www.youtube.com/@lannymonn",
             title: "YouTube",
             image: "./public/images/ui/icons/links/youtube.png",
             requiredLevel: 0,
@@ -251,24 +251,99 @@
           , n = p.scrollTop / (e - t) * 100 / 100 * (t - x.clientHeight - 26);
         x.style.transform = `translateY(${n}px)`
     }
-    async function A() {
-        const e = document.getElementById("up-button")
-          , t = document.getElementById("down-button")
-          , n = document.getElementById("fame");
+    // --- Supabase config ---
+    const SUPABASE_URL = "https://fbvutrtgnqtvuyxgoxhh.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZidnV0cnRnbnF0dnV5eGdveGhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1MTk3MjAsImV4cCI6MjA3MzA5NTcyMH0.594uz-miD6p_gYRDKX_R5vCOUmZwY3JK3aNMXDPc8bM";
+    if (!window.supabaseClient) {
+        window.supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    }
+    const supabaseClient = window.supabaseClient;
 
-        const response = await fetch(`http://localhost:8000/players/${s.query}/fame?action=up`, {
-            method: "PATCH"
-        });
+    /**
+     * Update fame value for the current player in Supabase
+     * @param {number} delta - Amount to increment/decrement fame
+     */
+    async function updateFame(delta) {
+        const upBtn = document.getElementById("up-button");
+        const downBtn = document.getElementById("down-button");
+        const fameElem = document.getElementById("fame");
 
-        const result = await response.json();
+        // Fetch current fame for player 'lan'
+        let { data, error } = await supabaseClient
+            .from('players')
+            .select('fame')
+            .eq('ign', s.query)
+            .limit(1);
 
-        if (response.ok) {
-            n.textContent = result.fame;
-            M(result.reaction); 
+        if (error || !data || !Array.isArray(data) || data.length === 0) {
+            upBtn.disabled = true;
+            downBtn.disabled = true;
+            console.error("Supabase fetch error:", error?.message || "Player not found");
+            fameElem.textContent = "-";
+            showFameError("Could not fetch fame value. Player not found or database error.");
+            return;
+        }
+        const player = data[0];
+        let newFame = player.fame + delta;
+        if (newFame < 0) newFame = 0;
+
+        // Update fame in Supabase and return updated row
+        let { data: updateData, error: updateError } = await supabaseClient
+            .from('players')
+            .update({ fame: newFame })
+            .eq('ign', s.query)
+            .select();
+        // Only log errors for review
+        if (updateError || !updateData) {
+            console.error("Supabase fame update error:", updateError?.message || "No update data returned");
+            showFameError("Failed to update fame. " + (updateError?.message || "No update data returned."));
+        }
+
+        // Refetch fame to ensure UI is up to date
+        let { data: updatedData, error: fetchError } = await supabaseClient
+            .from('players')
+            .select('fame')
+            .eq('ign', s.query)
+            .limit(1);
+        if (!updateError && !fetchError && updatedData && Array.isArray(updatedData) && updatedData.length > 0) {
+            fameElem.textContent = updatedData[0].fame;
+            hideFameError();
+            M(delta > 0 ? "F2" : "F4"); // Reaction logic
         } else {
-            e.disabled = true;
-            t.disabled = true;
-            console.error(result.detail);
+            fameElem.textContent = "-";
+            upBtn.disabled = true;
+            downBtn.disabled = true;
+            console.error("Supabase fame update/fetch error:", updateError?.message, fetchError?.message);
+            showFameError("Fame update failed. " + (updateError?.message || fetchError?.message || "Unknown error."));
+        }
+    }
+
+    /**
+     * Show fame error message below fame value
+     * @param {string} msg
+     */
+    function showFameError(msg) {
+        let errElem = document.getElementById("fame-error");
+        const fameElem = document.getElementById("fame");
+        if (!errElem) {
+            errElem = document.createElement("div");
+            errElem.id = "fame-error";
+            errElem.style.color = "red";
+            errElem.style.fontSize = "14px";
+            errElem.style.marginTop = "4px";
+            fameElem.parentNode.appendChild(errElem);
+        }
+        errElem.textContent = msg;
+        errElem.style.display = "block";
+    }
+
+    /**
+     * Hide fame error message
+     */
+    function hideFameError() {
+        const errElem = document.getElementById("fame-error");
+        if (errElem) {
+            errElem.style.display = "none";
         }
     }
     function F() {
@@ -363,6 +438,7 @@
     }(),
     a.classList.toggle("hidden");
     for (const e in s.player) {
+        if (e === "fame") continue; // Skip fame, let Supabase handle it
         const t = document.getElementById(e);
         t && (t.textContent = s.player[e])
     }
@@ -406,7 +482,8 @@
     }
     R(),
     document.getElementById("character-ign").textContent = s.player.ign,
-    v.textContent = s.player.fame,
+    // Set fame field to '-' as a fallback, then let Supabase update it
+    document.getElementById("fame").textContent = "-";
     y.addEventListener("click", (function() {
         I ? F() : H()
     }
@@ -426,13 +503,28 @@
     }
     ), 1e3),
     C(),
-    async function() {
-        document.getElementById("fame").textContent = await async function() {
-            const e = await fetch(`http://localhost:8000/players/${s.query}/fame`);
-            return (await e.json()).fame
-        }()
-    }(),
-    A(),
+    // Display current fame from Supabase on page load
+    (async function() {
+        const fameElem = document.getElementById("fame");
+        const supabaseUrl = "https://fbvutrtgnqtvuyxgoxhh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZidnV0cnRnbnF0dnV5eGdveGhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1MTk3MjAsImV4cCI6MjA3MzA5NTcyMH0.594uz-miD6p_gYRDKX_R5vCOUmZwY3JK3aNMXDPc8bM";
+        if (!window.supabaseClient) {
+            window.supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+        }
+        const supabaseClient = window.supabaseClient;
+        let { data, error } = await supabaseClient
+            .from('players')
+            .select('fame')
+            .eq('ign', s.query)
+            .limit(1);
+        if (!error && data && Array.isArray(data) && data.length > 0) {
+            fameElem.textContent = data[0].fame;
+            console.log("Fame for lan:", data[0].fame);
+        } else {
+            fameElem.textContent = "-";
+            console.log("Fame fetch failed or player not found");
+        }
+    })();
     addEventListener("resize", (function() {
         t(),
         e((function() {
@@ -443,21 +535,8 @@
         ), 100)()
     }
     )),
-    f.addEventListener("click", A),
-    k.addEventListener("click", async function() {
-        const response = await fetch(`http://localhost:8000/players/${s.query}/fame?action=down`, {
-            method: "PATCH"
-        });
-    
-        const result = await response.json();
-    
-        if (response.ok) {
-            document.getElementById("fame").textContent = result.fame;
-            M(result.reaction); 
-        } else {
-            console.error(result.detail);
-        }
-    }),
+    f.addEventListener("click", function() { updateFame(1); }),
+    k.addEventListener("click", function() { updateFame(-1); }),
     p.addEventListener("scroll", C),
     w.addEventListener("change", q),
     q(),
@@ -506,6 +585,6 @@
         document.hidden || l.reset()
     }
     )),
-    console.log("%c @lannymon", "font: 26px sans-serif; font-weight:bold; color: #c9e4ff; -webkit-text-stroke:0.01px black;")
+    console.log("%c @lannymon", "font: 16px sans-serif; font-weight:bold; color: #c9e4ff; -webkit-text-stroke:0.01px black;")
   }
   )();
